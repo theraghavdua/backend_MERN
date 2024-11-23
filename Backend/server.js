@@ -21,8 +21,8 @@ app.get("/", (req, res) => {
 
 
 
-
-
+//doctor
+app.use("/api/doctor", doctorRouter);
 
 app.listen(port, () => {
   console.log(`Server started on PORT: ${port}`);
