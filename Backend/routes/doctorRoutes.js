@@ -17,8 +17,8 @@ const doctorRouter = express.Router();
 doctorRouter.post("/login", loginDoctor);
 doctorRouter.post("/cancel-appointment", authDoctor, appointmentCancel);
 doctorRouter.get("/appointments", authDoctor, appointmentsDoctor);
-
+doctorRouter.get("/list", doctorList);
 doctorRouter.post("/complete-appointment", authDoctor, appointmentComplete);
+doctorRouter.get("/dashboard", authDoctor, doctorDashboard);
 
-
-module.exports = doctorRouter;  // Export with module.exports
+module.exports = doctorRouter;  
