@@ -82,6 +82,47 @@ const doctorList = async (req, res) => {
     }
 };
 
+
+const changeAvailablity = async (req, res) => {
+    try {
+        const { docId } = req.body;
+        const docData = await doctorModel.findById(docId);
+
+        await doctorModel.findByIdAndUpdate(docId, { available: !docData.available });
+        res.json({ success: true, message: 'Availability Changed' });
+    } catch (error) {
+        console.log(error);
+        res.json({ success: false, message: error.message });
+    }
+};
+
+const doctorProfile = async (req, res) => {
+    try {
+        const { docId } = req.body;
+        const profileData = await doctorModel.findById(docId).select('-password');
+
+        res.json({ success: true, profileData });
+    } catch (error) {
+        console.log(error);
+        res.json({ success: false, message: error.message });
+    }
+};
+
+const updateDoctorProfile = async (req, res) => {
+    try {
+        const { docId, fees, address, available } = req.body;
+
+        await doctorModel.findByIdAndUpdate(docId, { fees, address, available });
+
+        res.json({ success: true, message: 'Profile Updated' });
+    } catch (error) {
+        console.log(error);
+        res.json({ success: false, message: error.message });
+    }
+};
+
+
+
 const doctorDashboard = async (req, res) => {
     try {
 
@@ -122,11 +163,14 @@ const doctorDashboard = async (req, res) => {
     }
 }
 
-export {
+module.exports = {
     loginDoctor,
     appointmentsDoctor,
     appointmentCancel,
     doctorList,
+    changeAvailablity,
     appointmentComplete,
     doctorDashboard,
-}
+    doctorProfile,
+    updateDoctorProfile,
+};
