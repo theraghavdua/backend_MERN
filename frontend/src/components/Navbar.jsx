@@ -17,7 +17,7 @@ const Navbar = () => {
   }
 
   return (
-    <div className='flex items-center justify-between text-sm py-4 mb-5 border-b border-b-[#ADADAD]'>
+    <div className=' flex items-center justify-between text-sm py-4 mb-5 border-b border-b-[#ADADAD]'>
       <img onClick={() => navigate('/')} className='w-44 cursor-pointer' src={assets.logo} alt="" />
       <ul className='md:flex items-start gap-5 font-medium hidden'>
         <NavLink to='/' >
@@ -52,7 +52,7 @@ const Navbar = () => {
                 </div>
               </div>
             </div>
-            : <button onClick={() => navigate('/login')} className='bg-primary text-white px-8 py-3 rounded-full font-light hidden md:block'>Create account</button>
+            : <button onClick={() => navigate('/login')} className=' bg-gray-700 bg-primary text-white px-8 py-3 rounded-full font-normal hidden md:block'>Create account</button>
         }
         <img onClick={() => setShowMenu(true)} className='w-6 md:hidden' src={assets.menu_icon} alt="" />
 

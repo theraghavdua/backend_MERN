@@ -143,8 +143,8 @@ const Appointment = () => {
 
                     {/* ----- Doc Info : name, degree, experience ----- */}
 
-                    <p className='flex items-center gap-2 text-3xl font-medium text-gray-700'>{docInfo.name} <img className='w-5' src={assets.verified_icon} alt="" /></p>
-                    <div className='flex items-center gap-2 mt-1 text-gray-600'>
+                    <p className='flex items-center gap-2 text-3xl font-medium text-white-700'>{docInfo.name} <img className='w-5' src={assets.verified_icon} alt="" /></p>
+                    <div className='flex items-center gap-2 mt-1 text-white-600'>
                         <p>{docInfo.degree} - {docInfo.speciality}</p>
                         <button className='py-0.5 px-2 border text-xs rounded-full'>{docInfo.experience}</button>
                     </div>
@@ -152,10 +152,10 @@ const Appointment = () => {
                     {/* ----- Doc About ----- */}
                     <div>
                         <p className='flex items-center gap-1 text-sm font-medium text-[#262626] mt-3'>About <img className='w-3' src={assets.info_icon} alt="" /></p>
-                        <p className='text-sm text-gray-600 max-w-[700px] mt-1'>{docInfo.about}</p>
+                        <p className='text-sm text-white-600 max-w-[700px] mt-1'>{docInfo.about}</p>
                     </div>
 
-                    <p className='text-gray-600 font-medium mt-4'>Appointment fee: <span className='text-gray-800'>{currencySymbol}{docInfo.fees}</span> </p>
+                    <p className='text-white-600 font-medium mt-4'>Appointment fee: <span className='text-white-800'>{currencySymbol}{docInfo.fees}</span> </p>
                 </div>
             </div>
 
