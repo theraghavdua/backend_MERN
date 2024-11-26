@@ -20,9 +20,9 @@ const Navbar = () => {
   }
 
   return (
-    <div className='text-white bg-black flex justify-between items-center px-4 sm:px-10 py-3 border-b bg-white'>
+    <div className='text-white bg-black flex justify-between items-center px-4 sm:px-10 py-3 border-b'>
       <div className='flex items-center gap-2 text-xs'>
-        <img onClick={() => navigate('/')} className='w-36 text-white sm:w-40 cursor-pointer' src={assets.admin_logo} alt="" />
+        <img onClick={() => navigate('/')} className='w-36 text-white sm:w-40 cursor-pointer' src={assets.logo} alt="" />
         <p className='border text-white px-2.5 py-0.5 rounded-full border-gray-500 text-gray-600'>{aToken ? 'Admin' : 'Doctor'}</p>
       </div>
       <button onClick={() => logout()} className='bg-gray-700 text-white text-sm px-10 py-2 rounded-full'>Logout</button>
