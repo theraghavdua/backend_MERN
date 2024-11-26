@@ -65,23 +65,23 @@ export const specialityData = [
     },
     {
         speciality: 'Gynecologist',
-        image: Gynecologist
+        image: General_physician
     },
     {
         speciality: 'Dermatologist',
-        image: Dermatologist
+        image: General_physician
     },
     {
         speciality: 'Pediatricians',
-        image: Pediatricians
+        image: General_physician
     },
     {
         speciality: 'Neurologist',
-        image: Neurologist
+        image: General_physician
     },
     {
         speciality: 'Gastroenterologist',
-        image: Gastroenterologist
+        image: General_physician
     },
 ]
 
