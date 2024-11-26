@@ -22,6 +22,47 @@ const loginAdmin = async (req, res) => {
     }
 };
 
+const addDoctor = async (req, res) => {
+    try {
+        const { name, email, password, speciality, degree, experience, about, fees, address } = req.body;
+        const imageFile = req.file;
+        if (!name || !email || !password || !speciality || !degree || !experience || !about || !fees || !address) {
+            return res.json({ success: false, message: "Missing Details" });
+        }
+        if (!validator.isEmail(email)) {
+            return res.json({ success: false, message: "Please enter a valid email" });
+        }
+        if (password.length < 8) {
+            return res.json({ success: false, message: "Please enter a strong password" });
+        }
+        const salt = await bcrypt.genSalt(10);
+        const hashedPassword = await bcrypt.hash(password, salt);
+        const imageUpload = await cloudinary.uploader.upload(imageFile.path, { resource_type: "image" });
+        const imageUrl = imageUpload.secure_url;
+
+        const doctorData = {
+            name,
+            email,
+            image: imageUrl,
+            password: hashedPassword,
+            speciality,
+            degree,
+            experience,
+            about,
+            fees,
+            address: JSON.parse(address),
+            date: Date.now(),
+        };
+
+        const newDoctor = new doctorModel(doctorData);
+        await newDoctor.save();
+        res.json({ success: true, message: 'Doctor Added' });
+    } catch (error) {
+        console.log(error);
+        res.json({ success: false, message: error.message });
+    }
+};
+
 const appointmentsAdmin = async (req, res) => {
     try {
         const appointments = await appointmentModel.find({});
@@ -31,10 +72,6 @@ const appointmentsAdmin = async (req, res) => {
         res.json({ success: false, message: error.message });
     }
 };
-
-
-
-
 
 const adminDashboard = async (req, res) => {
     try {
@@ -65,6 +102,20 @@ const allDoctors = async (req, res) => {
         res.json({ success: false, message: error.message });
     }
 };
+
+
+const appointmentCancel = async (req, res) => {
+    try {
+        const { appointmentId } = req.body;
+        await appointmentModel.findByIdAndUpdate(appointmentId, { cancelled: true });
+        res.json({ success: true, message: 'Appointment Cancelled' });
+    } catch (error) {
+        console.log(error);
+        res.json({ success: false, message: error.message });
+    }
+};
+
+
 
 module.exports = {
     loginAdmin,
