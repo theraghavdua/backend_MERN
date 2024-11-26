@@ -1,7 +1,7 @@
-const jwt = require("jsonwebtoken");  // Change import to require
-const bcrypt = require("bcrypt");  // Change import to require
-const doctorModel = require("../models/doctorModel");  // Change import to require
-const appointmentModel = require("../models/appointmentModel");  // Change import to require
+const jwt = require("jsonwebtoken"); 
+const bcrypt = require("bcrypt");
+const doctorModel = require("../models/doctorModel");
+const appointmentModel = require("../models/appointmentModel");
 
 const loginDoctor = async (req, res) => {
     try {

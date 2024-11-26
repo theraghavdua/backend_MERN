@@ -1,5 +1,5 @@
 const express = require('express');
-const { loginUser, registerUser, getProfile, updateProfile } = require('../controllers/userController');
+const { loginUser, registerUser, getProfile, updateProfile, bookAppointment, listAppointment, cancelAppointment, paymentStripe, verifyStripe } = require('../controllers/userController');
 const upload = require('../middleware/multer');
 const authUser = require('../middleware/authUser');
 
@@ -10,5 +10,10 @@ userRouter.post("/login", loginUser);
 
 userRouter.get("/get-profile", authUser, getProfile);
 userRouter.post("/update-profile", upload.single('image'), authUser, updateProfile);
+userRouter.post("/book-appointment", authUser, bookAppointment);
+userRouter.get("/appointments", authUser, listAppointment);
+userRouter.post("/cancel-appointment", authUser, cancelAppointment);
+userRouter.post("/payment-stripe", authUser, paymentStripe);
+userRouter.post("/verifyStripe", authUser, verifyStripe);
 
 module.exports = userRouter;
