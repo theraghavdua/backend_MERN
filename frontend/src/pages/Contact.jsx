@@ -1,28 +1,50 @@
-import React from 'react'
-import { assets } from '../assets/assets'
+import React from "react";
+import { assets } from "../assets/assets";
 
 const Contact = () => {
   return (
     <div>
-
-      <div className='text-center text-2xl pt-10 text-white'>
-        <p>CONTACT <span className='text-white-700 font-semibold'>US</span></p>
+      <div className="text-center text-2xl pt-10 text-white">
+        <p>
+          CONTACT <span className="text-white-700 font-semibold">US</span>
+        </p>
       </div>
 
-      <div className='my-10 flex flex-col justify-center md:flex-row gap-10 mb-28 text-sm'>
-        <img className='w-full rounded-lg md:max-w-[360px]' src={assets.contact_image} alt="" />
-        <div className='flex flex-col justify-center items-start gap-6'>
-          <p className=' font-semibold text-lg text-white-600'>OUR OFFICE</p>
-          <p className=' text-white-500'>54709 Willms Station <br /> Suite 350, Washington, USA</p>
-          <p className=' text-white-500'>Tel: (415) 555-0132 <br /> Email: greatstackdev@gmail.com</p>
-          <p className=' font-semibold text-lg text-white-600'>CAREERS AT PRESCRIPTO</p>
-          <p className=' text-white-500'>Learn more about our teams and job openings.</p>
-          <button className='border border-black px-8 py-4 text-sm hover:bg-black hover:text-white transition-all duration-500'>Explore Jobs</button>
+      <div className="my-12 flex flex-col justify-center md:flex-row gap-12 mb-28 text-sm">
+        <img
+          className="w-full rounded-xl md:max-w-[380px]"
+          src={assets.contact_image}
+          alt="Office"
+        />
+
+        <div className="flex flex-col justify-center items-start gap-6">
+          <p className="font-semibold text-lg text-white">HEAD OFFICE</p>
+
+          <p className="text-gray-400 leading-relaxed">
+            3rd Floor, TechPark Tower <br />
+            Sector 62, Noida <br />
+            Uttar Pradesh, India – 201309
+          </p>
+
+          <p className="text-gray-400 leading-relaxed">
+            Phone: +91 98765 43210 <br />
+            Email: support@mediconnect.in
+          </p>
+
+          <p className="font-semibold text-lg text-white">
+            CAREERS AT MEDICONNECT
+          </p>
+
+          <p className="text-gray-400">
+            Join our growing team and help build the future of digital
+            healthcare in India.
+          </p>
+
+       
         </div>
       </div>
-
     </div>
-  )
-}
+  );
+};
 
-export default Contact
+export default Contact;
